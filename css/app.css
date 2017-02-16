@@ -1,3 +1,31 @@
+* {
+  box-sizing: border-box; }
 
+#app {
+  padding: 2em;
+  width: 360px;
+  margin: 60px auto 0;
+  border: 1px solid lightslategray;
+  border-radius: 4px;
+  color: #686868; }
+
+h1 {
+  margin-top: 0;
+  font-size: 1em; }
+
+i.fa-plus {
+  display: inline-block;
+  margin-left: 0.5em;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 6px;
+  color: #fff;
+  background-color: lightslategray; }
+
+input {
+  width: 80%;
+  height: 28px;
+  border-radius: 4px;
+  padding-left: 4px; }
 
 /*# sourceMappingURL=app.css.map */
