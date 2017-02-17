@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		Features:
 		(1. add tasks)
 		(2. display tasks as a list)
-		3. save tasks to local storage
-		4. mark tasks as complete
-		5. edit tasks
-		6. delete tasks
-		7. load tasks initially
+		(3. save tasks to local storage)
+		4. load tasks from storage
+		5. mark tasks as complete
+		6. edit tasks
+		7. delete tasks
 	 */
 	
 	const TASKLIST = 'taskList';
@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	let tasks = [];
 	let add = document.querySelector('.fa-plus');
 	add.addEventListener('click', addTask);
+	
+	// load any tasks already in local storage
+	loadTasks();
 	
 	function addTask() {
 		let task = inputField.value;
@@ -41,12 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 	
 	function displayTask(str) {
-		let item = document.createElement('li');
-		item.classList.add('task-item');
-		item.innerHTML = `<input class="checkbox" type="checkbox"><p>${str}</p>
-				<i class="fa fa-pencil" aria-hidden="true"></i>
-				<i class="fa fa-trash" aria-hidden="true"></i>`;
-		taskList.appendChild(item);
+		taskList.appendChild(buildListItem(str, false));
 	}
 	
 	function saveTask(str, state) {
@@ -57,5 +55,24 @@ document.addEventListener('DOMContentLoaded', function () {
 		tasks.push(task);
 		localStorage.setItem(TASKLIST, JSON.stringify(tasks));
 	}
+	
+	function loadTasks() {
+		tasks = JSON.parse(localStorage.getItem(TASKLIST));
+		if(tasks.length > 0) {
+			tasks.forEach(function (obj) {
+				taskList.appendChild(buildListItem(obj.task, obj.state));
+			})
+		}
+	}
+	
+	function buildListItem(str, state) {
+		let item = document.createElement('li');
+		item.classList.add('task-item');
+		item.innerHTML = `<input class="checkbox" type="checkbox"><p>${str}</p>
+				<i class="fa fa-pencil" aria-hidden="true"></i>
+				<i class="fa fa-trash" aria-hidden="true"></i>`;
+		return item;
+	}
+	
 	
 });
