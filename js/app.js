@@ -31,20 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	add.addEventListener('click', addTask);
 	
 	// load any tasks already in local storage
-	loadTasks();
+	loadTasks(buildListItem);
 	
 	function addTask() {
 		let task = inputField.value;
 		if(task) {
 			console.log(`${task}`);
 			inputField.value = '';
-			displayTask(task);
+			displayTask(buildListItem, task);
 			saveTask(task, false);
 		}
 	}
 	
-	function displayTask(str) {
-		taskList.appendChild(buildListItem(str, false));
+	function displayTask(fn, str) {
+		taskList.appendChild(fn(str, false));
 	}
 	
 	function saveTask(str, state) {
@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		localStorage.setItem(TASKLIST, JSON.stringify(tasks));
 	}
 	
-	function loadTasks() {
+	function loadTasks(fn) {
 		tasks = JSON.parse(localStorage.getItem(TASKLIST));
 		if(tasks.length > 0) {
 			tasks.forEach(function (obj) {
-				taskList.appendChild(buildListItem(obj.task, obj.state));
+				taskList.appendChild(fn(obj.task, obj.state));
 			})
 		}
 	}
