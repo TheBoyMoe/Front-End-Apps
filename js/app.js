@@ -11,5 +11,18 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+	let inputField = document.getElementById('input-field');
+	let add = document.querySelector('.fa-plus');
+	add.addEventListener('click', addTask);
+	
+	function addTask() {
+		let task = inputField.value;
+		if(task) {
+			console.log(`${task}`);
+			inputField.value = '';
+		}
+	}
+	
+
 	
 });
