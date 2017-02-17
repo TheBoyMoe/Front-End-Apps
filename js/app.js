@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	function displayTask(str) {
 		let item = document.createElement('li');
 		item.classList.add('task-item');
-		item.innerText = str;
+		//item.innerText = str;
+		item.innerHTML = `<input type="checkbox"><p>${str}</p>
+				<i class="fa fa-pencil" aria-hidden="true"></i>
+				<i class="fa fa-trash" aria-hidden="true"></i>`;
 		taskList.appendChild(item);
 	}
 	
