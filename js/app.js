@@ -8,6 +8,8 @@
 	[4] http://codepen.io/franklynroth/pen/ZYeaBd *
 	[5] http://codepen.io/szyszak/pen/pNPXVP
 	[6] http://codepen.io/mehra_as/pen/WrMKKr *
+	
+	
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,19 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
 		(1. add tasks)
 		(2. display tasks as a list)
 		(3. save tasks to local storage)
-		4. load tasks from storage
-		5. mark tasks as complete
-		6. edit tasks
-		7. delete tasks
+		(4. load tasks from storage)
+		5. update task state - checkbox and text strikethrough ?dom traversal
+		6. update task text - edit icon
+		7. delete tasks - bin icon
 	 */
 	
 	const TASKLIST = 'taskList';
 	let taskList = document.getElementById('task-list');
 	let inputField = document.getElementById('input-field');
-	let checkboxes = document.querySelectorAll('.checkbox');
 	let tasks = [];
 	let add = document.querySelector('.fa-plus');
 	add.addEventListener('click', addTask);
+	//let checkboxes;
+	
 	
 	// load any tasks already in local storage
 	loadTasks(buildListItem);
@@ -63,15 +66,69 @@ document.addEventListener('DOMContentLoaded', function () {
 				taskList.appendChild(fn(obj.task, obj.state));
 			})
 		}
+		// checkboxes = document.querySelectorAll('.checkbox');
+		// console.log(`number checkboxes ${checkboxes.length}`);
+		// checkboxes.forEach(function (checkbox, i) {
+		// 	checkbox.addEventListener('change', updateState);
+		// 	// update text - dom traversal
+		// });
+		
 	}
 	
 	function buildListItem(str, state) {
+		let p = buildText(str);
+		let checkbox = buildCheckbox();
+		let edit = buildIcon('fa-pencil', editTask);
+		let trash = buildIcon('fa-trash', deleteTask);
 		let item = document.createElement('li');
 		item.classList.add('task-item');
-		item.innerHTML = `<input class="checkbox" type="checkbox"><p>${str}</p>
-				<i class="fa fa-pencil" aria-hidden="true"></i>
-				<i class="fa fa-trash" aria-hidden="true"></i>`;
+		item.appendChild(checkbox);
+		item.appendChild(p);
+		item.appendChild(edit);
+		item.appendChild(trash);
 		return item;
+	}
+	
+	function updateState(e) {
+		// grab checkbox state
+		let checkbox = e.target;
+		if(checkbox.checked) console.log('clicked checkbox');
+		
+		// TODO update localStorage
+		// TODO strikethrough text
+		
+	}
+	
+	function buildCheckbox() {
+		let checkbox = document.createElement('input');
+		checkbox.setAttribute('type', 'checkbox');
+		checkbox.classList.add('checkbox');
+		checkbox.addEventListener('change', updateState);
+		return checkbox;
+	}
+	
+	function buildIcon(type, callback) {
+		let icon = document.createElement('i');
+		icon.classList.add(['fa'], [type]);
+		icon.setAttribute('aria-hidden', 'true');
+		icon.addEventListener('click', callback);
+		return icon;
+	}
+	
+	function buildText(str) {
+		let p = document.createElement('p');
+		p.innerText = str;
+		return p;
+	}
+	
+	function deleteTask(e) {
+		// TODO update storage and display
+		console.log('Clicked on trash');
+	}
+	
+	function editTask(e) {
+		// TODO update storage and display
+		console.log('Clicked on edit');
 	}
 	
 	
