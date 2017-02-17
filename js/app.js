@@ -11,6 +11,17 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+	/*
+		Features:
+		1. add tasks
+		2. display tasks as a list
+		3. save tasks to local storage
+		4. mark tasks as complete
+		5. edit tasks
+		6. delete tasks
+	 */
+	
+	let taskList = document.getElementById('task-list');
 	let inputField = document.getElementById('input-field');
 	let add = document.querySelector('.fa-plus');
 	add.addEventListener('click', addTask);
@@ -20,9 +31,15 @@ document.addEventListener('DOMContentLoaded', function () {
 		if(task) {
 			console.log(`${task}`);
 			inputField.value = '';
+			displayTask(task);
 		}
 	}
 	
-
+	function displayTask(str) {
+		let item = document.createElement('li');
+		item.classList.add('task-item');
+		item.innerText = str;
+		taskList.appendChild(item);
+	}
 	
 });
