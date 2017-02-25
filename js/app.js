@@ -55,8 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		remove: (e) => {
 			console.log('delete task...');
 			// 1. remove from list
-			let deleteBtn = e.target;
-			let li = deleteBtn.parentNode;
+			let li = e.target.parentNode;
 			let ul = li.parentNode;
 			ul.removeChild(li);
 			
@@ -64,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			
 		},
 		incomplete: (e) => {
-			console.log('mark task incomplete...');
+			console.log('incomplete task...');
+			
 		},
 		complete: (e) => {
 			console.log('mark task complete...');

@@ -35,13 +35,13 @@ input#input-field {
   border-radius: 0.25em;
   padding-left: 0.25em; }
 
-#complete-tasks,
+#completed-tasks,
 #incomplete-tasks {
   list-style: none;
   padding-left: 0;
   margin: 0 0 1.5em 0; }
-  #complete-tasks input,
-  #complete-tasks span,
+  #completed-tasks input,
+  #completed-tasks span,
   #incomplete-tasks input,
   #incomplete-tasks span {
     display: inline-block;
@@ -50,19 +50,22 @@ input#input-field {
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: middle; }
-  #complete-tasks li,
+  #completed-tasks li,
   #incomplete-tasks li {
     display: flex;
     padding: 1em 0; }
-    #complete-tasks li i,
+    #completed-tasks li i,
     #incomplete-tasks li i {
       font-size: 1em;
       display: inline-block; }
-    #complete-tasks li i.fa-trash,
+    #completed-tasks li i.fa-trash,
     #incomplete-tasks li i.fa-trash {
       margin-left: 0.5em; }
-    #complete-tasks li i.edit,
+    #completed-tasks li i.edit,
     #incomplete-tasks li i.edit {
       margin-left: auto; }
+
+#completed-tasks span {
+  text-decoration: line-through; }
 
 /*# sourceMappingURL=app.css.map */
