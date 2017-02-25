@@ -9,6 +9,8 @@
 	[5] http://codepen.io/szyszak/pen/pNPXVP
 	[6] http://codepen.io/mehra_as/pen/WrMKKr *
 	
+	articles:
+	[1] https://toddmotto.com/attaching-event-handlers-to-dynamically-created-javascript-elements/
 	
  */
 
