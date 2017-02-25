@@ -64,17 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		incomplete: (e) => {
 			console.log('incomplete task...');
-			// 1. grab the checkbox's parent, append it to the incomplete list and
+			// grab the checkbox's parent, append it to the incomplete list and
 			// bind the action to be performed is onchange is called
 			let li = e.target.parentNode;
 			incompleteTasksList.appendChild(li);
 			bindTaskEvents(li, taskActions.complete);
 			
-			// TODO 2. update item status in storage
+			// TODO update item status in storage
 			
 		},
 		complete: (e) => {
 			console.log('mark task complete...');
+			let li = e.target.parentNode;
+			completedTasksList.appendChild(li);
+			bindTaskEvents(li, taskActions.incomplete)
+			
+			// TODO update item status in storage
 		},
 		save: (e) => {
 			console.log('save task to storage...');
