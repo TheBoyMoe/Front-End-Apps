@@ -27,18 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	 */
 	"use strict";
 	const TASKLIST = 'taskList';
-	let taskList = document.getElementById('task-list');
-	let inputField = document.getElementById('input-field');
-	//let addBtn = document.querySelector('.fa-plus');
-	//let editBtn = document.que
+	const completeTasksList = document.getElementById('complete-tasks');
+	const incompleteTasksList = document.getElementById('incomplete-tasks');
+	const inputField = document.getElementById('input-field');
+	const addTaskBtn = document.querySelector('.fa-plus');
+	
 	let tasks = [];
-	
-	// add eventListeners
-	//addBtn.addEventListener('click', taskActions.add);
-	//editBtn.addEventListener('click', taskActions.edit);
-	
-	// load any tasks already in local storage
-	loadTasks(buildListItem);
 	
 	let taskActions = {
 		add: (e) => {
@@ -63,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('mark task complete...');
 		}
 	};
+	
+	// add eventListeners
+	addTaskBtn.addEventListener('click', taskActions.add);
 	
 	function addTask() {
 		let task = inputField.value;

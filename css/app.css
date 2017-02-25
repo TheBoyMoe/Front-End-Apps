@@ -11,9 +11,14 @@
   border-radius: 0.25em;
   color: #686868; }
 
-h1 {
+h1,
+h2 {
   margin-top: 0;
   font-size: 1em; }
+
+form,
+h2 {
+  margin-bottom: 2em; }
 
 i.fa-plus {
   display: inline-block;
