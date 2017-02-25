@@ -5,10 +5,8 @@
 
 #app {
   padding: 2em;
-  width: 360px;
+  width: 400px;
   margin: 60px auto 0;
-  border: 1px solid lightslategray;
-  border-radius: 0.25em;
   color: #686868; }
 
 h1,
@@ -16,8 +14,10 @@ h2 {
   margin-top: 0;
   font-size: 1em; }
 
-form,
 h2 {
+  margin-bottom: 0; }
+
+form {
   margin-bottom: 2em; }
 
 i.fa-plus {
@@ -35,22 +35,36 @@ input#input-field {
   border-radius: 0.25em;
   padding-left: 0.25em; }
 
-#task-list {
+#complete-tasks,
+#incomplete-tasks {
   list-style: none;
-  margin-left: 0;
-  padding-left: 0; }
-  #task-list p {
+  padding-left: 0;
+  margin: 0 0 1.5em 0; }
+  #complete-tasks input,
+  #complete-tasks span,
+  #incomplete-tasks input,
+  #incomplete-tasks span {
     display: inline-block;
-    margin-left: 1em;
-    width: 74%;
+    margin-left: 0.5em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    vertical-align: bottom; }
-  #task-list i {
-    line-height: 50px;
-    font-size: 1em; }
-  #task-list i.fa-trash {
-    margin-left: 0.5em; }
+    vertical-align: middle; }
+  #complete-tasks li,
+  #incomplete-tasks li {
+    display: flex;
+    padding: 1em 0; }
+    #complete-tasks li i,
+    #incomplete-tasks li i {
+      font-size: 1em;
+      display: inline-block; }
+    #complete-tasks li i.fa-trash,
+    #incomplete-tasks li i.fa-trash {
+      margin-left: 0.5em; }
+    #complete-tasks li i.fa-pencil,
+    #complete-tasks li i.fa-save,
+    #incomplete-tasks li i.fa-pencil,
+    #incomplete-tasks li i.fa-save {
+      margin-left: auto; }
 
 /*# sourceMappingURL=app.css.map */

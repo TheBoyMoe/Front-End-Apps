@@ -37,6 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
 	let taskActions = {
 		add: (e) => {
 			console.log('add task...');
+			let inputText = inputField.value;
+			if(inputText) {
+				// TODO
+				// 1. create a new task item
+				// 2. append to incomplete tasks list
+				// 3. bind taskAction events
+				// 4. save to localStorage
+				
+				
+				inputField.value = '';
+			}
 		},
 		edit: (e) => {
 			console.log('edit task...');
@@ -60,6 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	// add eventListeners
 	addTaskBtn.addEventListener('click', taskActions.add);
+	
+	
+	
+	
 	
 	function addTask() {
 		let task = inputField.value;

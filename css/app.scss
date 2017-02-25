@@ -12,10 +12,8 @@ $large: 2em;
 
 #app {
 	padding: $large;
-	width: 360px;
+	width: 400px;
 	margin: 60px auto 0;
-	border: 1px solid lightslategray;
-	border-radius: $xsmall;
 	color: #686868;
 }
 
@@ -25,8 +23,11 @@ h2 {
 	font-size: 1em;
 }
 
-form,
 h2 {
+	margin-bottom: 0;
+}
+
+form {
 	margin-bottom: 2em;
 }
 
@@ -47,27 +48,39 @@ input#input-field {
 	padding-left: $xsmall;
 }
 
-#task-list {
+#complete-tasks,
+#incomplete-tasks {
 	list-style: none;
-	margin-left: 0;
 	padding-left: 0;
+	margin: 0 0 $medium 0;
 
-	p {
+	input,
+	span {
 		display: inline-block;
-		margin-left: $normal;
-		width: 74%;
+		margin-left: $small;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		vertical-align: bottom;
+		vertical-align: middle;
 	}
 
-	i {
-		line-height: 50px;
-		font-size: $normal;
+	li {
+		display: flex;
+		padding: $normal 0;
+
+		i {
+			font-size: $normal;
+			display: inline-block;
+		}
+
+		i.fa-trash {
+			margin-left: $small;
+		}
+
+		i.fa-pencil,
+		i.fa-save {
+			margin-left: auto;
+		}
 	}
 
-	i.fa-trash {
-		margin-left: $small;
-	}
 }
