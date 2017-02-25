@@ -25,18 +25,44 @@ document.addEventListener('DOMContentLoaded', function () {
 		6. update task text - edit icon
 		7. delete tasks - bin icon
 	 */
-	
+	"use strict";
 	const TASKLIST = 'taskList';
 	let taskList = document.getElementById('task-list');
 	let inputField = document.getElementById('input-field');
+	//let addBtn = document.querySelector('.fa-plus');
+	//let editBtn = document.que
 	let tasks = [];
-	let add = document.querySelector('.fa-plus');
-	add.addEventListener('click', addTask);
-	//let checkboxes;
 	
+	// add eventListeners
+	//addBtn.addEventListener('click', taskActions.add);
+	//editBtn.addEventListener('click', taskActions.edit);
 	
 	// load any tasks already in local storage
 	loadTasks(buildListItem);
+	
+	let taskActions = {
+		add: (e) => {
+			console.log('add task...');
+		},
+		edit: (e) => {
+			console.log('edit task...');
+		},
+		save: (e) => {
+			console.log('save task...');
+		},
+		remove: (e) => {
+			console.log('delete task...');
+		},
+		load: (e) => {
+			console.log('load tasks from storage...');
+		},
+		incomplete: (e) => {
+			console.log('mark task incomplete...');
+		},
+		complete: (e) => {
+			console.log('mark task complete...');
+		}
+	};
 	
 	function addTask() {
 		let task = inputField.value;
@@ -68,13 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				taskList.appendChild(fn(obj.task, obj.state));
 			})
 		}
-		// checkboxes = document.querySelectorAll('.checkbox');
-		// console.log(`number checkboxes ${checkboxes.length}`);
-		// checkboxes.forEach(function (checkbox, i) {
-		// 	checkbox.addEventListener('change', updateState);
-		// 	// update text - dom traversal
-		// });
-		
 	}
 	
 	function buildListItem(str, state) {
@@ -122,16 +141,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		p.innerText = str;
 		return p;
 	}
-	
-	function deleteTask(e) {
-		// TODO update storage and display
-		console.log('Clicked on trash');
-	}
-	
-	function editTask(e) {
-		// TODO update storage and display
-		console.log('Clicked on edit');
-	}
-	
+
 	
 });
