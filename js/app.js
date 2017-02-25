@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	 */
 	"use strict";
 	const TASKLIST = 'taskList';
-	const completeTasksList = document.getElementById('complete-tasks');
+	const completedTasksList = document.getElementById('completed-tasks');
 	const incompleteTasksList = document.getElementById('incomplete-tasks');
 	const inputField = document.getElementById('input-field');
 	const addTaskBtn = document.querySelector('.fa-plus');
@@ -64,6 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		incomplete: (e) => {
 			console.log('incomplete task...');
+			// 1. grab the checkbox's parent, append it to the incomplete list and
+			// bind the action to be performed is onchange is called
+			let li = e.target.parentNode;
+			incompleteTasksList.appendChild(li);
+			bindTaskEvents(li, taskActions.complete);
+			
+			// TODO 2. update item status in storage
 			
 		},
 		complete: (e) => {
@@ -97,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 	
 	// iterate over the complete tasks list binding events to each item in turn
-	for(let i = 0; i < completeTasksList.children.length; i++) {
-		bindTaskEvents(completeTasksList.children[i], taskActions.incomplete);
+	for(let i = 0; i < completedTasksList.children.length; i++) {
+		bindTaskEvents(completedTasksList.children[i], taskActions.incomplete);
 	}
 	
 	
