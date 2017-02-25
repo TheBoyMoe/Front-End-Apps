@@ -61,10 +61,8 @@ input#input-field {
     #complete-tasks li i.fa-trash,
     #incomplete-tasks li i.fa-trash {
       margin-left: 0.5em; }
-    #complete-tasks li i.fa-pencil,
-    #complete-tasks li i.fa-save,
-    #incomplete-tasks li i.fa-pencil,
-    #incomplete-tasks li i.fa-save {
+    #complete-tasks li i.edit,
+    #incomplete-tasks li i.edit {
       margin-left: auto; }
 
 /*# sourceMappingURL=app.css.map */

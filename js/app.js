@@ -52,26 +52,46 @@ document.addEventListener('DOMContentLoaded', function () {
 		edit: (e) => {
 			console.log('edit task...');
 		},
-		save: (e) => {
-			console.log('save task...');
-		},
 		remove: (e) => {
 			console.log('delete task...');
-		},
-		load: (e) => {
-			console.log('load tasks from storage...');
 		},
 		incomplete: (e) => {
 			console.log('mark task incomplete...');
 		},
 		complete: (e) => {
 			console.log('mark task complete...');
+		},
+		save: (e) => {
+			console.log('save task to storage...');
+		},
+		load: (e) => {
+			console.log('load tasks from storage...');
 		}
 	};
 	
 	// add eventListeners
 	addTaskBtn.addEventListener('click', taskActions.add);
 	
+	function bindTaskEvents(listItem, checkBoxEventHandler) {
+		let checkbox = listItem.querySelector('input[type=checkbox]');
+		let editBtn = listItem.querySelector('i.edit');
+		let deleteBtn = listItem.querySelector('i.delete');
+		
+		// bind task actions to list item events
+		checkbox.onchange = checkBoxEventHandler;
+		editBtn.onclick = taskActions.edit;
+		deleteBtn.onclick = taskActions.remove;
+	}
+	
+	// iterate over the incomplete tasks list binding events to each item in turn
+	for(let i = 0; i < incompleteTasksList.children.length; i++) {
+		bindTaskEvents(incompleteTasksList.children[i], taskActions.complete);
+	}
+	
+	// iterate over the complete tasks list binding events to each item in turn
+	for(let i = 0; i < completeTasksList.children.length; i++) {
+		bindTaskEvents(completeTasksList.children[i], taskActions.incomplete);
+	}
 	
 	
 	
