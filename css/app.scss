@@ -54,19 +54,26 @@ input#input-field {
 	padding-left: 0;
 	margin: 0 0 $medium 0;
 
-	input,
-	span {
-		display: inline-block;
-		margin-left: $small;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		vertical-align: middle;
-	}
-
 	li {
 		display: flex;
 		padding: $normal 0;
+
+		input[type=text] {
+			display: none;
+		}
+
+		label {
+			display: inline-block;
+		}
+
+		input[type=text],
+		label {
+			margin-left: $small;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			vertical-align: middle;
+		}
 
 		i {
 			font-size: $normal;
@@ -82,11 +89,19 @@ input#input-field {
 		}
 	}
 
+	li.edit-mode {
+
+		input[type=text] {
+			display: inline-block;
+		}
+
+	}
+
 }
 
 #completed-tasks {
 
-	span {
+	label {
 		text-decoration: line-through;
 	}
 }

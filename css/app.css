@@ -40,20 +40,25 @@ input#input-field {
   list-style: none;
   padding-left: 0;
   margin: 0 0 1.5em 0; }
-  #completed-tasks input,
-  #completed-tasks span,
-  #incomplete-tasks input,
-  #incomplete-tasks span {
-    display: inline-block;
-    margin-left: 0.5em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle; }
   #completed-tasks li,
   #incomplete-tasks li {
     display: flex;
     padding: 1em 0; }
+    #completed-tasks li input[type=text],
+    #incomplete-tasks li input[type=text] {
+      display: none; }
+    #completed-tasks li label,
+    #incomplete-tasks li label {
+      display: inline-block; }
+    #completed-tasks li input[type=text],
+    #completed-tasks li label,
+    #incomplete-tasks li input[type=text],
+    #incomplete-tasks li label {
+      margin-left: 0.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: middle; }
     #completed-tasks li i,
     #incomplete-tasks li i {
       font-size: 1em;
@@ -64,8 +69,11 @@ input#input-field {
     #completed-tasks li i.edit,
     #incomplete-tasks li i.edit {
       margin-left: auto; }
+  #completed-tasks li.edit-mode input[type=text],
+  #incomplete-tasks li.edit-mode input[type=text] {
+    display: inline-block; }
 
-#completed-tasks span {
+#completed-tasks label {
   text-decoration: line-through; }
 
 /*# sourceMappingURL=app.css.map */

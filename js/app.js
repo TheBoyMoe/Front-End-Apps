@@ -43,14 +43,15 @@ document.addEventListener('DOMContentLoaded', function () {
 				let li = createNewTaskItem(inputText);
 				incompleteTasksList.appendChild(li);
 				bindTaskEvents(li, taskActions.complete);
+				inputField.value = '';
 				
 				// TODO save to localStorage
 				
-				inputField.value = '';
 			}
 		},
 		edit: (e) => {
 			console.log('edit task...');
+			
 		},
 		remove: (e) => {
 			console.log('delete task...');
@@ -143,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		icon.setAttribute('aria-hiddden', 'type');
 		return icon;
 	}
-	
 	
 	function addTask() {
 		let task = inputField.value;
