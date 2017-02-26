@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('add task...');
 			let inputText = inputField.value;
 			if(inputText) {
-				// TODO
-				// 1. create a new task item
-				// 2. append to incomplete tasks list
-				// 3. bind taskAction events
-				// 4. save to localStorage
+				// create task, append to incompleteTask list and bind task actions
+				let li = createNewTaskItem(inputText);
+				incompleteTasksList.appendChild(li);
+				bindTaskEvents(li, taskActions.complete);
 				
+				// TODO save to localStorage
 				
 				inputField.value = '';
 			}
