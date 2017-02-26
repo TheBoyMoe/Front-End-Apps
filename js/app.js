@@ -83,9 +83,15 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		save: (e) => {
 			console.log('save task to storage...');
+			// create obj - task & state
+			// save to localStorage
 		},
 		load: (e) => {
 			console.log('load tasks from storage...');
+			
+			// read localStorage
+			// iterate through obj list
+			// populate complete/incomplete lists based on task state
 		}
 	};
 	
@@ -113,7 +119,30 @@ document.addEventListener('DOMContentLoaded', function () {
 		bindTaskEvents(completedTasksList.children[i], taskActions.incomplete);
 	}
 	
+	function createNewTaskItem(text) {
+		let li = document.createElement('li');
+		let checkbox = document.createElement('input');
+		let span = document.createElement('span');
+		let editBtn = createButton('fa-pencil', 'edit');
+		let deleteBtn = createButton('fa-trash', 'delete');
+		
+		checkbox.type = 'checkbox';
+		span.textContent = text;
+		
+		li.appendChild(checkbox);
+		li.appendChild(span);
+		li.appendChild(editBtn);
+		li.appendChild(deleteBtn);
+		
+		return li;
+	}
 	
+	function createButton(className, role) {
+		let icon = document.createElement('i');
+		icon.classList.add(['fa'], [className], [role]);
+		icon.setAttribute('aria-hiddden', 'type');
+		return icon;
+	}
 	
 	
 	function addTask() {
@@ -180,13 +209,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		return checkbox;
 	}
 	
-	function buildIcon(type, callback) {
-		let icon = document.createElement('i');
-		icon.classList.add(['fa'], [type]);
-		icon.setAttribute('aria-hidden', 'true');
-		icon.addEventListener('click', callback);
-		return icon;
-	}
+	// function buildIcon(type, callback) {
+	// 	let icon = document.createElement('i');
+	// 	icon.classList.add(['fa'], [type]);
+	// 	icon.setAttribute('aria-hidden', 'true');
+	// 	icon.addEventListener('click', callback);
+	// 	return icon;
+	// }
 	
 	function buildText(str) {
 		let p = document.createElement('p');
