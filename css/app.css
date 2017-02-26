@@ -72,6 +72,9 @@ input#input-field {
   #completed-tasks li.edit-mode input[type=text],
   #incomplete-tasks li.edit-mode input[type=text] {
     display: inline-block; }
+  #completed-tasks li.edit-mode label,
+  #incomplete-tasks li.edit-mode label {
+    display: none; }
 
 #completed-tasks label {
   text-decoration: line-through; }

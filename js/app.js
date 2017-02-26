@@ -51,7 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		edit: (e) => {
 			console.log('edit task...');
+			let btn = e.target;
+			let li = btn.parentNode;
+			let input = li.querySelector('input[type=text]');
+			let label = li.querySelector('label');
+			if(li.classList.contains('edit-mode')) {
+				label.textContent = input.value;
+				btn.classList.remove('fa-save');
+				btn.classList.add('fa-pencil');
+			} else {
+				input.value = label.textContent;
+				btn.classList.remove('fa-pencil');
+				btn.classList.add('fa-save');
+			}
+			li.classList.toggle('edit-mode');
 			
+			// TODO update localStorage
 		},
 		remove: (e) => {
 			console.log('delete task...');
@@ -60,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			let ul = li.parentNode;
 			ul.removeChild(li);
 			
-			// TODO 2. remove from storage
+			// TODO remove from storage
 			
 		},
 		incomplete: (e) => {
