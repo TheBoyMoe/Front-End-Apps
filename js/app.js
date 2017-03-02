@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			let li = btn.parentNode;
 			let input = li.querySelector('input[type=text]');
 			let label = li.querySelector('label');
+			console.log(input + ' ' + label);
 			if(li.classList.contains('edit-mode')) {
 				label.textContent = input.value;
 				btn.classList.remove('fa-save');
@@ -122,8 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
 					
 					// create task, append to incompleteTask list and bind task actions
 					let li = createNewTaskItem(item);
-					incompleteTasksList.appendChild(li);
-					bindTaskEvents(li, taskActions.complete);
+					if(!state) {
+						incompleteTasksList.appendChild(li);
+						bindTaskEvents(li, taskActions.complete);
+					}
 					// TODO append to completeTask list if state true
 					
 				})
@@ -162,14 +165,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		let li = document.createElement('li');
 		let checkbox = document.createElement('input');
 		let label = document.createElement('label');
+		let input = document.createElement('input');
 		let editBtn = createButton('fa-pencil', 'edit');
 		let deleteBtn = createButton('fa-trash', 'delete');
 		
 		checkbox.type = 'checkbox';
 		label.textContent = text;
+		input.type = 'text';
 		
 		li.appendChild(checkbox);
 		li.appendChild(label);
+		li.appendChild(input);
 		li.appendChild(editBtn);
 		li.appendChild(deleteBtn);
 		
