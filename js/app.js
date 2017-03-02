@@ -113,6 +113,21 @@ document.addEventListener('DOMContentLoaded', function () {
 			// read localStorage
 			// iterate through obj list
 			// populate complete/incomplete lists based on task state
+			
+			tasks = JSON.parse(localStorage.getItem(TASKLIST));
+			if(tasks.length > 0) {
+				tasks.forEach(function (obj) {
+					let item = obj.task;
+					let state = obj.state;
+					
+					// create task, append to incompleteTask list and bind task actions
+					let li = createNewTaskItem(item);
+					incompleteTasksList.appendChild(li);
+					bindTaskEvents(li, taskActions.complete);
+					// TODO append to completeTask list if state true
+					
+				})
+			}
 		}
 	};
 	
@@ -137,6 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	// iterate over the complete tasks list binding events to each item in turn
 	for(let i = 0; i < completedTasksList.children.length; i++) {
 		bindTaskEvents(completedTasksList.children[i], taskActions.incomplete);
+	}
+	
+	function init() {
+		taskActions.load();
 	}
 	
 	function createNewTaskItem(text) {
@@ -242,5 +261,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		return p;
 	}
 
+	init(); // load any saved list items
 	
 });
