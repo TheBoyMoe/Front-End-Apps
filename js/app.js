@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				bindTaskEvents(li, taskActions.complete);
 				inputField.value = '';
 				
-				// TODO save to localStorage
-				
+				// save to localStorage
+				taskActions.save(inputText, false);
 			}
 		},
 		edit: (e) => {
@@ -97,10 +97,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			
 			// TODO update item status in storage
 		},
-		save: (e) => {
+		save: (str, state) => {
 			console.log('save task to storage...');
-			// create obj - task & state
-			// save to localStorage
+			// create obj - task & state, save to localStorage
+			let task = {
+				task: str,
+				state: state
+			};
+			tasks.push(task);
+			localStorage.setItem(TASKLIST, JSON.stringify(tasks));
 		},
 		load: (e) => {
 			console.log('load tasks from storage...');
@@ -118,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		let checkbox = listItem.querySelector('input[type=checkbox]');
 		let editBtn = listItem.querySelector('i.edit');
 		let deleteBtn = listItem.querySelector('i.delete');
-		
 		// bind task actions to list item events
 		checkbox.onchange = checkBoxEventHandler;
 		editBtn.onclick = taskActions.edit;
@@ -138,15 +142,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	function createNewTaskItem(text) {
 		let li = document.createElement('li');
 		let checkbox = document.createElement('input');
-		let span = document.createElement('span');
+		let label = document.createElement('label');
 		let editBtn = createButton('fa-pencil', 'edit');
 		let deleteBtn = createButton('fa-trash', 'delete');
 		
 		checkbox.type = 'checkbox';
-		span.textContent = text;
+		label.textContent = text;
 		
 		li.appendChild(checkbox);
-		li.appendChild(span);
+		li.appendChild(label);
 		li.appendChild(editBtn);
 		li.appendChild(deleteBtn);
 		
@@ -174,14 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		taskList.appendChild(fn(str, false));
 	}
 	
-	function saveTask(str, state) {
-		let task = {
-			task: str,
-			state: state
-		};
-		tasks.push(task);
-		localStorage.setItem(TASKLIST, JSON.stringify(tasks));
-	}
+	// function saveTask(str, state) {
+	// 	let task = {
+	// 		task: str,
+	// 		state: state
+	// 	};
+	// 	tasks.push(task);
+	// 	localStorage.setItem(TASKLIST, JSON.stringify(tasks));
+	// }
 	
 	function loadTasks(fn) {
 		tasks = JSON.parse(localStorage.getItem(TASKLIST));
@@ -224,13 +228,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		return checkbox;
 	}
 	
-	// function buildIcon(type, callback) {
-	// 	let icon = document.createElement('i');
-	// 	icon.classList.add(['fa'], [type]);
-	// 	icon.setAttribute('aria-hidden', 'true');
-	// 	icon.addEventListener('click', callback);
-	// 	return icon;
-	// }
+	function buildIcon(type, callback) {
+		let icon = document.createElement('i');
+		icon.classList.add(['fa'], [type]);
+		icon.setAttribute('aria-hidden', 'true');
+		icon.addEventListener('click', callback);
+		return icon;
+	}
 	
 	function buildText(str) {
 		let p = document.createElement('p');
