@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			li.classList.toggle('edit-mode');
 			
 			// remove the item from the tasks array & update storage
-			tasks = updateTasksList(tasks, oldText);
+			tasks = removeMatchingTaskFromArray(tasks, oldText);
 			
 			// save the update tasks array to local storage
 			taskActions.save(newText, checkbox.checked);
@@ -86,13 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			let text = li.textContent;
 			let ul = li.parentNode;
 			ul.removeChild(li);
-			
-			// remove task from storage
-			if(tasks.length > 0) {
-				tasks = updateTasksList(tasks, text);
-			}
-			// replace the stored task list
-			localStorage.setItem(TASKLIST, JSON.stringify(tasks));
+			updateArrayAndStorage(text);
 		},
 		incomplete: (e) => {
 			console.log('incomplete task...');
@@ -102,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			incompleteTasksList.appendChild(li);
 			bindTaskEvents(li, taskActions.complete);
 			
-			// TODO update item status in storage
-			
+			// update item status in storage
+			updateItemState(li);
 		},
 		complete: (e) => {
 			console.log('mark task complete...');
@@ -111,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			completedTasksList.appendChild(li);
 			bindTaskEvents(li, taskActions.incomplete);
 			
-			// TODO update item status in storage
+			// update item status in the array & storage
+			updateItemState(li);
 		},
 		save: (str, state) => {
 			// console.log('save task to storage...');
@@ -176,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		taskActions.load();
 	}
 	
-	function updateTasksList(arr, text) {
+	function removeMatchingTaskFromArray(arr, text) {
 		arr.forEach(function (obj, i, array) {
 			if(text === obj.task) {
 				array.splice(i, 1);
@@ -184,6 +179,22 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 		return arr;
+	}
+	
+	function updateArrayAndStorage(text) {
+		// remove task from the array
+		if(tasks.length > 0) {
+			tasks = removeMatchingTaskFromArray(tasks, text);
+			// replace the stored task list
+			localStorage.setItem(TASKLIST, JSON.stringify(tasks));
+		}
+	}
+	
+	function updateItemState(item) {
+		let text = item.querySelector('label').textContent;
+		let state = item.querySelector('input[type=checkbox]').checked;
+		tasks = removeMatchingTaskFromArray(tasks, text);
+		taskActions.save(text, state);
 	}
 	
 	function createNewTaskItem(text) {
@@ -255,10 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		// grab checkbox state
 		let checkbox = e.target;
 		if(checkbox.checked) console.log('clicked checkbox');
-		
-		// TODO update localStorage
-		// TODO strikethrough text
-		
 	}
 	
 	function buildCheckbox() {
