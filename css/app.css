@@ -20,17 +20,11 @@ h2 {
 form {
   margin-bottom: 2em; }
 
-i.fa-plus {
-  display: inline-block;
-  margin-left: 0.5em;
-  height: 1.5em;
-  line-height: 1.5em;
-  padding: 0 6px;
-  color: #fff;
-  background-color: lightslategray; }
+button[type="submit"] {
+  margin-left: 4px; }
 
 input#input-field {
-  width: 86%;
+  width: 78%;
   height: 28px;
   border-radius: 0.25em;
   padding-left: 0.25em; }
@@ -69,6 +63,12 @@ input#input-field {
     #completed-tasks li i.edit,
     #incomplete-tasks li i.edit {
       margin-left: auto; }
+    #completed-tasks li i.fa,
+    #incomplete-tasks li i.fa {
+      background-color: #ccc;
+      width: 20px;
+      height: 20px;
+      cursor: pointer; }
   #completed-tasks li.edit-mode input[type=text],
   #incomplete-tasks li.edit-mode input[type=text] {
     display: inline-block; }

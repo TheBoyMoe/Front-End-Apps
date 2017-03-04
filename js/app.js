@@ -30,13 +30,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	const completedTasksList = document.getElementById('completed-tasks');
 	const incompleteTasksList = document.getElementById('incomplete-tasks');
 	const inputField = document.getElementById('input-field');
-	const addTaskBtn = document.querySelector('.fa-plus');
+	// const addTaskBtn = document.querySelector('.fa-plus');
+	const submitForm = document.getElementById('addTask');
 	
 	let tasks = [];
 	
 	let taskActions = {
 		add: (e) => {
 			console.log('add task...');
+			e.preventDefault();
+			
 			let inputText = inputField.value;
 			if(inputText) {
 				// create task, append to incompleteTask list and bind task actions
@@ -115,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			// iterate through obj list
 			// populate complete/incomplete lists based on task state
 			
-			tasks = JSON.parse(localStorage.getItem(TASKLIST));
+			tasks = JSON.parse(localStorage.getItem(TASKLIST)) || [];
 			if(tasks.length > 0) {
 				tasks.forEach(function (obj) {
 					let item = obj.task;
@@ -135,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 	
 	// add eventListeners
-	addTaskBtn.addEventListener('click', taskActions.add);
+	//addTaskBtn.addEventListener('click', taskActions.add);
+	submitForm.addEventListener('submit', taskActions.add);
 	
 	function bindTaskEvents(listItem, checkBoxEventHandler) {
 		let checkbox = listItem.querySelector('input[type=checkbox]');

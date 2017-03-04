@@ -31,18 +31,22 @@ form {
 	margin-bottom: 2em;
 }
 
-i.fa-plus {
-	display: inline-block;
-	margin-left: $small;
-	height: $medium;
-	line-height: $medium;
-	padding: 0 6px;
-	color: #fff;
-	background-color: lightslategray;
+//i.fa-plus {
+//	display: inline-block;
+//	margin-left: $small;
+//	height: $medium;
+//	line-height: $medium;
+//	padding: 0 6px;
+//	color: #fff;
+//	background-color: lightslategray;
+//}
+
+button[type="submit"] {
+	margin-left: 4px;
 }
 
 input#input-field {
-	width: 86%;
+	width: 78%;
 	height: 28px;
 	border-radius: $xsmall;
 	padding-left: $xsmall;
@@ -86,6 +90,13 @@ input#input-field {
 
 		i.edit {
 			margin-left: auto;
+		}
+
+		i.fa {
+			background-color: #ccc;
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
 		}
 	}
 
