@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const completedTasksList = document.getElementById('completed-tasks');
 	const incompleteTasksList = document.getElementById('incomplete-tasks');
 	const inputField = document.getElementById('input-field');
-	// const addTaskBtn = document.querySelector('.fa-plus');
 	const submitForm = document.getElementById('addTask');
 	
 	let tasks = [];
@@ -56,21 +55,29 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('edit task...');
 			let btn = e.target;
 			let li = btn.parentNode;
+			let text;
 			let input = li.querySelector('input[type=text]');
 			let label = li.querySelector('label');
 			console.log(input + ' ' + label);
 			if(li.classList.contains('edit-mode')) {
 				label.textContent = input.value;
+				text = input.value;
 				btn.classList.remove('fa-save');
 				btn.classList.add('fa-pencil');
 			} else {
 				input.value = label.textContent;
+				text = label.textContent;
 				btn.classList.remove('fa-pencil');
 				btn.classList.add('fa-save');
 			}
 			li.classList.toggle('edit-mode');
 			
-			// TODO update localStorage
+			// update localStorage - remove the item from the tasks array
+			// clicking on save will automatically update local storage
+			tasks.forEach(function (obj, i, array) {
+				
+			})
+			
 		},
 		remove: (e) => {
 			console.log('delete task...');
@@ -82,12 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			
 			// remove task from storage
 			if(tasks.length > 0) {
-				tasks.forEach(function (obj, i, array) {
-					if(text === obj.task) {
-						array.splice(i, 1);
-						tasks = array;
-					}
-				})
+				tasks = updateTasksList(tasks, text);
 			}
 			// replace the stored task list
 			localStorage.setItem(TASKLIST, JSON.stringify(tasks));
@@ -148,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 	
 	// add eventListeners
-	//addTaskBtn.addEventListener('click', taskActions.add);
 	submitForm.addEventListener('submit', taskActions.add);
 	
 	function bindTaskEvents(listItem, checkBoxEventHandler) {
@@ -173,6 +174,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	function init() {
 		taskActions.load();
+	}
+	
+	function updateTasksList(arr, text) {
+		arr.forEach(function (obj, i, array) {
+			if(text === obj.task) {
+				array.splice(i, 1);
+			}
+		});
+		return arr;
 	}
 	
 	function createNewTaskItem(text) {
@@ -216,15 +226,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	function displayTask(fn, str) {
 		taskList.appendChild(fn(str, false));
 	}
-	
-	// function saveTask(str, state) {
-	// 	let task = {
-	// 		task: str,
-	// 		state: state
-	// 	};
-	// 	tasks.push(task);
-	// 	localStorage.setItem(TASKLIST, JSON.stringify(tasks));
-	// }
 	
 	function loadTasks(fn) {
 		tasks = JSON.parse(localStorage.getItem(TASKLIST));
