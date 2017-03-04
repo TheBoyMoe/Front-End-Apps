@@ -74,13 +74,23 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		remove: (e) => {
 			console.log('delete task...');
-			// 1. remove from list
+			// remove from list
 			let li = e.target.parentNode;
+			let text = li.textContent;
 			let ul = li.parentNode;
 			ul.removeChild(li);
 			
-			// TODO remove from storage
-			
+			// remove task from storage
+			if(tasks.length > 0) {
+				tasks.forEach(function (obj, i, array) {
+					if(text === obj.task) {
+						array.splice(i, 1);
+						tasks = array;
+					}
+				})
+			}
+			// replace the stored task list
+			localStorage.setItem(TASKLIST, JSON.stringify(tasks));
 		},
 		incomplete: (e) => {
 			console.log('incomplete task...');
