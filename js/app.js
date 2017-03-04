@@ -55,28 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('edit task...');
 			let btn = e.target;
 			let li = btn.parentNode;
-			let text;
+			let newText, oldText;
 			let input = li.querySelector('input[type=text]');
+			let checkbox = li.querySelector('input[type=checkbox]');
 			let label = li.querySelector('label');
-			console.log(input + ' ' + label);
 			if(li.classList.contains('edit-mode')) {
 				label.textContent = input.value;
-				text = input.value;
+				newText = input.value;
 				btn.classList.remove('fa-save');
 				btn.classList.add('fa-pencil');
 			} else {
 				input.value = label.textContent;
-				text = label.textContent;
+				oldText = label.textContent;
 				btn.classList.remove('fa-pencil');
 				btn.classList.add('fa-save');
 			}
 			li.classList.toggle('edit-mode');
 			
-			// update localStorage - remove the item from the tasks array
-			// clicking on save will automatically update local storage
-			tasks.forEach(function (obj, i, array) {
-				
-			})
+			// remove the item from the tasks array & update storage
+			tasks = updateTasksList(tasks, oldText);
+			
+			// save the update tasks array to local storage
+			taskActions.save(newText, checkbox.checked);
 			
 		},
 		remove: (e) => {
@@ -109,12 +109,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('mark task complete...');
 			let li = e.target.parentNode;
 			completedTasksList.appendChild(li);
-			bindTaskEvents(li, taskActions.incomplete)
+			bindTaskEvents(li, taskActions.incomplete);
 			
 			// TODO update item status in storage
 		},
 		save: (str, state) => {
-			console.log('save task to storage...');
+			// console.log('save task to storage...');
 			// create obj - task & state, save to localStorage
 			let task = {
 				task: str,
@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		arr.forEach(function (obj, i, array) {
 			if(text === obj.task) {
 				array.splice(i, 1);
+				arr = array;
 			}
 		});
 		return arr;
