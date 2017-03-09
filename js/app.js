@@ -135,9 +135,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					let li = createNewTaskItem(item);
 					if(!state) {
 						incompleteTasksList.appendChild(li);
-						bindTaskEvents(li, taskActions.complete);
+						bindTaskEvents(li, taskActions.complete, false);
+					} else {
+						// append to completeTask list if state true
+						completedTasksList.appendChild(li);
+						bindTaskEvents(li, taskActions.incomplete, true);
 					}
-					// TODO append to completeTask list if state true
+					
 					
 				})
 			}
@@ -147,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// add eventListeners
 	submitForm.addEventListener('submit', taskActions.add);
 	
-	function bindTaskEvents(listItem, checkBoxEventHandler) {
+	function bindTaskEvents(listItem, checkBoxEventHandler, status) {
 		let checkbox = listItem.querySelector('input[type=checkbox]');
 		let editBtn = listItem.querySelector('i.edit');
 		let deleteBtn = listItem.querySelector('i.delete');
@@ -155,6 +159,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		checkbox.onchange = checkBoxEventHandler;
 		editBtn.onclick = taskActions.edit;
 		deleteBtn.onclick = taskActions.remove;
+		// set checkbox when status true
+		if(status) checkbox.checked = true;
 	}
 	
 	// iterate over the incomplete tasks list binding events to each item in turn
@@ -239,14 +245,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		taskList.appendChild(fn(str, false));
 	}
 	
-	function loadTasks(fn) {
-		tasks = JSON.parse(localStorage.getItem(TASKLIST));
-		if(tasks.length > 0) {
-			tasks.forEach(function (obj) {
-				taskList.appendChild(fn(obj.task, obj.state));
-			})
-		}
-	}
+	// function loadTasks(fn) {
+	// 	tasks = JSON.parse(localStorage.getItem(TASKLIST));
+	// 	if(tasks.length > 0) {
+	// 		tasks.forEach(function (obj) {
+	// 			taskList.appendChild(fn(obj.task, obj.state));
+	// 		})
+	// 	}
+	// }
 	
 	function buildListItem(str, state) {
 		let p = buildText(str);
