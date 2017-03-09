@@ -1,19 +1,22 @@
 /*  Spaces */
-
-$xsmall: 0.25em;
-$small: 0.5em;
+$xxxsmall: 0.125em; /* 2px */
+$xxsmall: 0.25em; /* 4px */
+$xsmall: 0.5em; /* 8px */
+$small: 0.75em; /* 12px */
 $normal: 1em; /* 16px */
-$medium: 1.5em;
-$large: 2em;
+$medium: 1.5em; /* 24px */
+$large: 2em; /* 32px */
+$xlarge: 4em; /* 64px */
 
 * {
 	box-sizing: border-box;
+	font-family: Lato, sans-serif;
 }
 
 #app {
 	padding: $large;
 	width: 400px;
-	margin: 60px auto 0;
+	margin: $xlarge auto 0;
 	color: #686868;
 }
 
@@ -21,35 +24,41 @@ h1,
 h2 {
 	margin-top: 0;
 	font-size: 1em;
+	font-weight: 700;
+	border-bottom: $xxxsmall solid #666;
+	padding-bottom: $xxsmall;
+	text-transform: uppercase;
 }
 
 h2 {
 	margin-bottom: 0;
 }
 
+h1,
 form {
-	margin-bottom: 2em;
+	margin-bottom: $large;
 }
 
-//i.fa-plus {
-//	display: inline-block;
-//	margin-left: $small;
-//	height: $medium;
-//	line-height: $medium;
-//	padding: 0 6px;
-//	color: #fff;
-//	background-color: lightslategray;
-//}
 
 button[type="submit"] {
-	margin-left: 4px;
+	margin-left: $xxsmall;
+	padding: 8px 6px 6px 6px;
 }
 
-input#input-field {
-	width: 78%;
-	height: 28px;
-	border-radius: $xsmall;
-	padding-left: $xsmall;
+input[type="text"] {
+	margin: 0;
+	font-size: 18px;
+	line-height: 18px;
+	padding: $xsmall;
+	border: 1px solid #ddd;
+	background: #fff;
+	border-radius: 6px;
+	color: #888;
+}
+
+#input-field {
+	width: 272px;
+	//padding: 8px 8px 8px 8px;
 }
 
 #completed-tasks,
@@ -61,6 +70,7 @@ input#input-field {
 	li {
 		display: flex;
 		padding: $normal 0;
+		height: 72px;
 
 		input[type=text] {
 			display: none;
@@ -72,11 +82,16 @@ input#input-field {
 
 		input[type=text],
 		label {
-			margin-left: $small;
+			margin-left: $xsmall;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			vertical-align: middle;
+			line-height: 40px;
+		}
+
+		input[type="checkbox"] {
+			margin: $small 0 $xsmall;
 		}
 
 		i {
@@ -85,11 +100,11 @@ input#input-field {
 		}
 
 		i.fa-trash {
-			margin-left: $small;
+			margin: $small 0 $xsmall $xsmall;
 		}
 
 		i.edit {
-			margin-left: auto;
+			margin: $small 0 $xsmall auto;
 		}
 
 		i.fa {

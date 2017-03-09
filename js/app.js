@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	let taskActions = {
 		add: (e) => {
-			console.log('add task...');
 			e.preventDefault();
 			
 			let inputText = inputField.value;
 			if(inputText) {
+				console.log('add task...');
 				// create task, append to incompleteTask list and bind task actions
 				let li = createNewTaskItem(inputText);
 				incompleteTasksList.appendChild(li);
