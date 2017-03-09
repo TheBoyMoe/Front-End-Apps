@@ -65,7 +65,6 @@ input#input-field {
       margin-left: auto; }
     #completed-tasks li i.fa,
     #incomplete-tasks li i.fa {
-      background-color: #ccc;
       width: 20px;
       height: 20px;
       cursor: pointer; }
