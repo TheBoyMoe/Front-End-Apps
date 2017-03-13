@@ -1,14 +1,20 @@
-Javascript Web Apps 
-------------------------
+#Javascript Web Apps 
 
-Javascript Todo List App built with html/css and plain js, no jQuery used.
+### Javascript Todo List App
+
+Built with html/css and plain js, no jQuery used.
 Based on the Todo List App of the TeamTreeHouse course [Interactive Web Pages with Javascript](http://teamtreehouse.com/library/interactive-web-pages-with-javscript).
 The app has been explanded to include the use of browser's LocalStorage to save
 tasks between browsers refresh and launch. Tasks such as add, delete, save, etc,
 have been moved to the taskActions object.
  
-Working version of the project can be seen at Codepen.io:  
-[]()
+Working version of the project can be seen at Codepen.io:
+* [Javascript Todo List App](http://codepen.io/billfero/pen/aJwVBZ)  
+
+
+### Javascript/Css/Html starter App incorporating Gulp
+Starter app using the Gulp build tool to automate the tasks of image compression,
+scss pre-processing, es6 transpiling and file concatenation and minification.
 
 
 ###MIT License
