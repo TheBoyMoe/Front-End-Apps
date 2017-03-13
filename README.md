@@ -1,8 +1,8 @@
-Javascript Todo List App 
+Javascript Web Apps 
 ------------------------
 
 Javascript Todo List App built with html/css and plain js, no jQuery used.
-Based on the Todo List App of the TeamTreeHouse course []().
+Based on the Todo List App of the TeamTreeHouse course [Interactive Web Pages with Javascript](http://teamtreehouse.com/library/interactive-web-pages-with-javscript).
 The app has been explanded to include the use of browser's LocalStorage to save
 tasks between browsers refresh and launch. Tasks such as add, delete, save, etc,
 have been moved to the taskActions object.
