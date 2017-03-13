@@ -12,7 +12,7 @@ Working version of the project can be seen at Codepen.io:
 * [Javascript Todo List App](http://codepen.io/billfero/pen/aJwVBZ)  
 
 
-### Javascript/Css/Html starter App incorporating Gulp
+### Javascript/Css/Html boiler plate incorporating Gulp
 Starter app using the Gulp build tool to automate the tasks of image compression,
 scss pre-processing, es6 transpiling and file concatenation and minification.
 
