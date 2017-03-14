@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const input = document.getElementById('input');
 	const operations = document.querySelectorAll('.operation');
 	const numbers = document.querySelectorAll('.number');
-	
+	let display = '';
 	
 	// calc functions
 	let task = {
@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log(`clicked multiply`);
 		},
 		clear: (e) => {
-			console.log(`clicked clear`);
+			display = '';
+			input.textContent = output.textContent = display;
 		},
 		equals: (e) => {
 			console.log(`clicked equals`);
@@ -71,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	function numberClick(e) {
-		let val = e.target.getAttribute('data-val');
-		input.textContent = val;
-		output.textContent = val;
+		display += e.target.getAttribute('data-val');
+		input.textContent = display;
+		output.textContent = display;
 	}
 	
 });
