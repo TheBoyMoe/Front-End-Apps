@@ -11,26 +11,31 @@ document.addEventListener('DOMContentLoaded', function () {
 	// calc functions
 	let task = {
 		addition: (e) => {
-			console.log(`clicked addition`);
+			display += '+';
+			updateDisplay(display);
 		},
 		subtract: (e) => {
-			console.log(`clicked subtract`);
+			display += '-';
+			updateDisplay(display);
 		},
 		divide: (e) => {
-			console.log(`clicked divide`);
+			display += '/';
+			updateDisplay(display);
 		},
 		multiply: (e) => {
-			console.log(`clicked multiply`);
+			display += '*';
+			updateDisplay(display);
 		},
 		clear: (e) => {
 			display = '';
-			input.textContent = output.textContent = display;
+			updateDisplay(display);
 		},
 		equals: (e) => {
-			console.log(`clicked equals`);
+			// TODO execute the operation
 		},
 		back: (e) => {
-			console.log(`backspace`);
+			display = display.substring(0, display.length - 1);
+			updateDisplay(display);
 		}
 	};
 	
@@ -73,8 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	function numberClick(e) {
 		display += e.target.getAttribute('data-val');
-		input.textContent = display;
-		output.textContent = display;
+		updateDisplay(display);
+	}
+	
+	function updateDisplay(val) {
+		input.textContent = output.textContent = val;
+	}
+	
+	function displayResult(val) {
+		output.textContent = val;
 	}
 	
 });
