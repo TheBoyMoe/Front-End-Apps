@@ -8,32 +8,34 @@ document.addEventListener('DOMContentLoaded', function () {
 	const numbers = document.querySelectorAll('.number');
 	let display = '';
 	
-	// calc functions
-	let task = {
-		addition: (e) => {
+	// calc operation functions
+	let calc = {
+		addition: () => {
 			display += '+';
 			updateDisplay(display);
 		},
-		subtract: (e) => {
+		subtract: () => {
 			display += '-';
 			updateDisplay(display);
 		},
-		divide: (e) => {
+		divide: () => {
 			display += '/';
 			updateDisplay(display);
 		},
-		multiply: (e) => {
+		multiply: () => {
 			display += '*';
 			updateDisplay(display);
 		},
-		clear: (e) => {
+		clear: () => {
 			display = '';
 			updateDisplay(display);
 		},
-		equals: (e) => {
+		equals: () => {
 			// TODO execute the operation
+			console.log(math.eval(display).toPrecision(2));
+			// output.textContent = math.eval(display).toPrecision(2);
 		},
-		back: (e) => {
+		back: () => {
 			display = display.substring(0, display.length - 1);
 			updateDisplay(display);
 		}
@@ -44,25 +46,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		let dataVal = elm.getAttribute('data-val');
 		switch (dataVal) {
 			case 'addition':
-				elm.onclick = task.addition;
+				elm.onclick = calc.addition;
 				break;
 			case 'subtract':
-				elm.onclick = task.subtract;
+				elm.onclick = calc.subtract;
 				break;
 			case 'multiply':
-				elm.onclick = task.multiply;
+				elm.onclick = calc.multiply;
 				break;
 			case 'divide':
-				elm.onclick = task.divide;
+				elm.onclick = calc.divide;
 				break;
 			case 'clear':
-				elm.onclick = task.clear;
+				elm.onclick = calc.clear;
 				break;
 			case 'equals':
-				elm.onclick = task.equals;
+				elm.onclick = calc.equals;
 				break;
 			case 'back':
-				elm.onclick = task.back;
+				elm.onclick = calc.back;
 				break;
 		}
 	}
