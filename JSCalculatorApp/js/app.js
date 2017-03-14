@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const output = document.getElementById('output');
 	const input = document.getElementById('input');
 	const operations = document.querySelectorAll('.operation');
-	// const operators = document.querySelectorAll('.operator');
 	const numbers = document.querySelectorAll('.number');
 	
 	
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 	
 	// bind calc functions to btn elms
-	function bindCalcFunction(elm) {
+	function bindCalcOperation(elm) {
 		let dataVal = elm.getAttribute('data-val');
 		switch (dataVal) {
 			case 'addition':
@@ -62,19 +61,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 	
-	function numberClick(e) {
-		console.log(e.target.getAttribute('data-val'));
-	}
-	
 	// iterate over elm arrays and bind operations
 	operations.forEach(function(elm) {
-		bindCalcFunction(elm);
+		bindCalcOperation(elm);
 	});
 	
 	numbers.forEach(function (elm) {
 		elm.addEventListener('click', numberClick);
-	})
+	});
 	
+	function numberClick(e) {
+		console.log(e.target.getAttribute('data-val'));
+	}
 	
 });
 
