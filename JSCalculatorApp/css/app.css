@@ -1,0 +1,242 @@
+/*
+    Colour palette
+
+    day time:
+    text color: #666666;
+    clear button text: #00AFCF
+    primary background: #ffffff;
+    input screen: #efefee
+    background-active/focus: #efefee
+    equal button: #00AFCF
+
+    night time:
+    text color: #d3e5f4;
+    clear button text: #00AFCF
+    primary background: #191d29;
+    input screen: #212b3f
+    background-active/focus: #212b3f
+    equal button: #00AFCF
+
+    calculator dimensions:
+    calculator: width: 310px, height: 530px;
+    header: width: 310px, height: 60px;
+    screen: width: 310px, height: 140px;
+    panel: width: 310px, height: 330px;
+    equal button: width: 75px, height: 130px;
+    button: width: 75px, height: 75px;
+
+
+    Fonts:
+    font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+
+
+ */
+
+
+body * {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #666666;
+
+}
+
+body {
+    background-color: #d0cfe0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#calculator {
+    height: 558px;
+    width: 310px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -274px;
+    margin-left: -155px;
+    background-color: #efefee;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.4), 0 16px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+#header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+#header h1 {
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+    background: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+a.app-style {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+a.app-style i {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #008800;
+    font-size: 24px;
+}
+
+
+#screen {
+    height: 100px;
+    padding: 20px;
+}
+
+#output,
+#input {
+    text-align: right;
+    overflow: hidden;
+}
+
+#output {
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+}
+
+#input {
+    height: 60px;
+    line-height: 60px;
+    font-size: 50px;
+}
+
+#panel {
+    width: 100%;
+    height: 354px;
+    background-color: #e1e1e1;
+    border-top: 2px solid #e1e1e1;
+}
+
+button {
+    width: 76px;
+    height: 69px;
+    background-color: #ffffff;
+    padding: 0;
+    border: none;
+    font-size: 28px;
+}
+
+button.cancel {
+    color: #259fcf;
+}
+
+button:active {
+    background-color: #efefee;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button.equals {
+    height: 140px;
+    width: 76px;
+    color: #ffffff;
+    background-color: #259fcf;
+}
+
+button.equals:active {
+    background-color: #2890cf;
+}
+
+
+.button-row {
+    margin-bottom: 2px;
+}
+
+button.cancel,
+button.clear,
+button.division,
+button.one,
+button.two,
+button.three,
+button.four,
+button.five,
+button.six,
+button.seven,
+button.eight,
+button.nine,
+button.zero,
+button.period,
+button.left-arrow,
+button.percentage {
+    margin-right: 2px;
+}
+
+button.multiplication,
+button.subtraction,
+button.addition,
+button.equals,
+button.division,
+button.period {
+    font-size: 36px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Helper classes */
+
+.pull-left {
+    float: left !important;
+}
+.pull-right {
+    float: right !important;
+}
+
+.show {
+    display: block !important;
+}
+.hidden {
+    display: none !important;
+}
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1; /* ie 6/7 */
+}
+.center-parent {
+    position: relative;
+}
+
+.center-child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

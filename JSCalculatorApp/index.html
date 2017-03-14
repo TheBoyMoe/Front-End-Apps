@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS Calculator</title>
+
+    <!-- font awesome -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--google font -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">-->
+
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+    <!--
+        References:
+        
+        // examples
+        [1] http://codepen.io/Roemerdt/pen/YWRwoG?editors=0010 (uses ES6, calculator obj, methods impl calc functions)
+        [2] https://codepen.io/PiotrBerebecki/pen/jrMeWZ
+        [3] https://codepen.io/supah/pen/pgGYBe
+        [4] https://codepen.io/mjijackson/pen/xOzyGX (calculator built with react)
+        [5] https://codepen.io/giana/pen/GJMBEv
+        [6] https://codepen.io/kirbyedy/pen/obYogp (uses jQuery)
+        [7] https://codepen.io/lalwanivikas/pen/eZxjqo
+        [8] https://codepen.io/tomhazledine/pen/xGKoYQ
+        [9] http://codepen.io/dennisjsk/pen/GsyEa (example uses eval() - could potentialy be hacked)
+        
+        // articles
+        [1] http://www.ascii.cl/htmlcodes.htm
+        [2] https://dev.w3.org/html5/html-author/charref
+        [3] http://htmlarrows.com/symbols/
+        [4] https://www.codeproject.com/tips/631525/creating-calculator-using-html-css-and-javascript
+        [5] http://stackoverflow.com/questions/2276021/evaluating-a-string-as-a-mathematical-expression-in-javascript
+        [6] http://jsbin.com/devacu/edit?html,js,output & http://mathjs.org/ (maths library)
+        
+    -->
+
+</head>
+<body>
+
+    <div id="calculator">
+        <div class="wrap">
+            <div id="header" class="clearfix">
+                <h1>Calculator</h1>
+                <a href="#" class="app-style"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a>
+            </div>
+            <div id="screen">
+                <div id="output"></div>
+                <div id="input"></div>
+            </div>
+            <div id="panel">
+                <div class="button-row clearfix">
+                    <button class="operation cancel pull-left" data-val="clear">C</button>
+                    <button class="operation clear pull-left" data-val="clear">CE</button>
+                    <button class="operation division pull-left" data-val="divide">&divide;</button>
+                    <button class="operation multiplication pull-left" data-val="multiply">&times;</button>
+                </div>
+                <div class="button-row clearfix">
+                    <button class="number one pull-left" data-val="1">1</button>
+                    <button class="number two pull-left" data-val="2">2</button>
+                    <button class="number three pull-left" data-val="3">3</button>
+                    <button class="operation subtraction pull-left" data-val="subtract">&minus;</button>
+                </div>
+                <div class="button-row clearfix">
+                    <button class="number four pull-left" data-val="4">4</button>
+                    <button class="number five pull-left" data-val="5">5</button>
+                    <button class="number six pull-left" data-val="6">6</button>
+                    <button class="operation addition pull-left" data-val="addition">&plus;</button>
+                </div>
+                <div class="clearfix">
+                    <button class="operation equals pull-right" data-val="equals">&equals;</button>
+                    <div class="button-row pull-left clearfix">
+                        <button class="number seven pull-left" data-val="7">7</button>
+                        <button class="number eight pull-left" data-val="8">8</button>
+                        <button class="number nine pull-left" data-val="9">9</button>
+                    </div>
+                    <div class="button-row pull-left clearfix">
+                        <button class="number zero pull-left" data-val="0">0</button>
+                        <button class="number period pull-left" data-val=".">&period;</button>
+                        <button class="operation left-arrow pull-left" data-val="back">&larr;</button>
+                        <!--<button class="operator percentage pull-left" data-val="percnt">&percnt;</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>Calculator design by <a href="https://material.uplabs.com/shabbir34">Shabbir Manpurwala</a></footer>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.5.3/math.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
