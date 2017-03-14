@@ -71,7 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	function numberClick(e) {
-		console.log(e.target.getAttribute('data-val'));
+		let val = e.target.getAttribute('data-val');
+		input.textContent = val;
+		output.textContent = val;
 	}
 	
 });
