@@ -233,4 +233,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	init(); // load any saved list items
 	
+	// function constructor of a toDo list Item
+	/*
+	 function TodoListItem(description) {
+		 this.description = description;
+		 this.isDone = false;
+		 this.toString = function() {
+		 	return this.description;
+	 	 }
+		 this.markAsComplete = function() {
+		 	this.isDone = true;
+		 }
+	 }
+	 
+	 var task = new TodoListItem("Do the laundry!");
+	 
+	 */
+	
 });
