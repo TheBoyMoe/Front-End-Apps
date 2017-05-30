@@ -6,3 +6,6 @@ JSBoilerPlate/public/css/
 JSBoilerPlate/public/js/
 JSBoilerPlate/public/imgs/
 
+PortfolioDemo/node_modules
+PortfolioDemo/src/css/styles.css*
+PortfolioDemo/dist/
