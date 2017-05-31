@@ -7,5 +7,6 @@ JSBoilerPlate/public/js/
 JSBoilerPlate/public/imgs/
 
 PortfolioDemo/node_modules
-PortfolioDemo/src/css/styles.css*
 PortfolioDemo/dist/
+PortfolioDemo/src/css/
+PortfolioDemo/src/.sass-cache
