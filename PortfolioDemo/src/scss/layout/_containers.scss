@@ -12,8 +12,8 @@ section {
 
 
 section.success {
-	color: #fff;
-	background: #2F9AFF;
+	color: $color-text-secondary;
+	background: $color-background-secondary;
 
 	a {
 		@extend %remove-outline;
@@ -22,7 +22,7 @@ section.success {
 		&:focus,
 		&:active{
 			@extend %remove-outline;
-			color: #2c3e50;
+			color: $color-background-tertiary;
 		}
 
 	}
@@ -73,7 +73,7 @@ section.success {
 				margin-top: -12px;
 				text-align: center;
 				font-size: 20px;
-				color: #fff;
+				color: $color-text-secondary;
 
 				i {
 					margin-top: -12px;
@@ -135,14 +135,14 @@ section.success {
 		width: 1px;
 		height: 75px;
 		margin-left: 35px;
-		background-color: #2c3e50;
+		background-color: $color-background-tertiary;
 		transform: rotate(45deg);
 
 		.rl {
 			z-index: 1052;
 			width: 1px;
 			height: 75px;
-			background-color: #2c3e50;
+			background-color: $color-background-tertiary;
 			transform: rotate(90deg);
 		}
 	}
@@ -161,11 +161,11 @@ section.success {
 	position: relative;
 	margin-bottom: 0;
 	padding-bottom: .5em;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid $color-border;
 
 	&:not(:first-child) {
 		padding-left: 14px;
-		border-left: 1px solid #eee;
+		border-left: 1px solid $color-border;
 	}
 
 	input,
@@ -203,9 +203,10 @@ section.success {
 }
 
 .floating-label-form-group-with-focus label {
-	color: #2F9AFF; }
+	color: $color-background-secondary;
+}
 
 form .row:first-child .floating-label-form-group {
-	border-top: 1px solid #eee;
+	border-top: 1px solid $color-border;
 }
 

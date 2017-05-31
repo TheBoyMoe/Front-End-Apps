@@ -22,7 +22,8 @@
 	@extend %remove-border;
 
 	.navbar-nav li.active a {
-		background-color: #18bc9c; }
+		background-color: $color-nav-active;
+	}
 }
 
 .navbar-inverse {
@@ -48,8 +49,8 @@
 header {
 	position: relative;
 	text-align: center;
-	color: #fff;
-	background: #2F9AFF;
+	color: $color-text-secondary;
+	background: $color-background-secondary;
 
 	.container {
 		padding-top: 100px; }
@@ -82,7 +83,7 @@ header::after {
 	height: 190px;
 	position: absolute;
 	transform: skewY(-5deg);
-	background-color: #fff;
+	background-color: $color-background-primary;
 	bottom: -100px; }
 
 #tagline {

@@ -1,6 +1,7 @@
 
 body {
-	overflow-x: hidden; }
+	overflow-x: hidden;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	@extend %headings;
@@ -11,7 +12,8 @@ p {
 	font-size: 20px;
 
 	&.small {
-		font-size: 16px; }
+		font-size: 16px;
+	}
 }
 
 
@@ -21,7 +23,7 @@ a {
 	&:active,
 	&.active {
 		outline: 0;
-		color: #2F9AFF;
+		color: $color-text-active;
 	}
 }
 
@@ -46,20 +48,20 @@ hr.star-light:after, hr.star-primary:after {
 
 
 hr.star-light {
-	border-color: #fff;
+	border-color: $color-border-light;
 
 	&:after {
-		color: #fff;
-		background-color: #2F9AFF;
+		color: $color-text-secondary;
+		background-color: $color-background-secondary;
 	}
 }
 
 hr.star-primary {
-	border-color: #2c3e50;
+	border-color: $color-border-dark;
 
 	&:after {
-		color: #2c3e50;
-		background-color: #fff;
+		color: $color-text-primary;
+		background-color: $color-background-primary;
 	}
 }
 

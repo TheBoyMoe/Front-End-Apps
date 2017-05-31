@@ -8,9 +8,9 @@
 
 .btn-outline {
 	margin-top: 15px;
-	border: solid 2px #fff;
+	border: solid 2px $color-border-light;
 	font-size: 20px;
-	color: #fff;
+	color: $color-text-secondary;
 	background: 0 0;
 	transition: all .3s ease-in-out;
 
@@ -18,15 +18,15 @@
 	&:focus,
 	&:active,
 	&.active {
-		border: solid 2px #fff;
-		color: #2F9AFF;
-		background: #fff; }
+		border: solid 2px $color-border-light;
+		color: $color-text-active;
+		background: $color-background-primary; }
 }
 
 .btn-social {
 	@extend %button;
 	display: inline-block;
-	border: 2px solid #fff;
+	border: 2px solid $color-border-light;
 	border-radius: 50%;
 	text-align: center;
 	font-size: 20px;
