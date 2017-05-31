@@ -27,3 +27,7 @@ $stack-montserrat:  Montserrat, $stack-sans-serif;
 /* dimensions */
 $br:		2px;
 $br-thin:	1px;
+
+// media query break points
+$min-width: '(min-width: 768px)';
+$max-width: '(max-width: 767px)';

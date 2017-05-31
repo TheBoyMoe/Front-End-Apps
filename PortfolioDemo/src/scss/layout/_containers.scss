@@ -7,6 +7,17 @@ section {
 		margin: 0;
 		font-size: 3em;
 	}
+
+	@media #{$max-width} {
+		padding: 75px 0;
+	}
+
+	&.first {
+		@media #{$max-width} {
+			padding-top: 75px;
+		}
+	}
+
 }
 
 
@@ -46,6 +57,10 @@ section.success {
 #portfolio .portfolio-item {
 	right: 0;
 	margin: 0 0 15px;
+
+	@media #{$min-width} {
+		margin: 0 0 30px;
+	}
 
 	.portfolio-link {
 		display: block;

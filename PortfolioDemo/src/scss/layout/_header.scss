@@ -30,6 +30,32 @@
 	@extend %remove-border;
 }
 
+.navbar-fixed-top {
+	@media #{$min-width} {
+		padding: 25px 0;
+		transition: padding .3s;
+	}
+
+	&.navbar-shrink {
+		@media #{$min-width} {
+			padding: 10px 0;
+		}
+
+		.navbar-brand {
+			@media #{$min-width} {
+				font-size: 1.5em;
+			}
+		}
+
+	}
+	.navbar-brand {
+		@media #{$min-width} {
+			font-size: 2em;
+			transition: all .3s;
+		}
+	}
+}
+
 
 /* tagline & avatar */
 
@@ -53,7 +79,13 @@ header {
 	background: $color-background-secondary;
 
 	.container {
-		padding-top: 100px; }
+		padding-top: 100px;
+
+		@media #{$min-width} {
+			padding-top: 200px;
+		}
+
+	}
 
 	img {
 		display: block;
@@ -65,11 +97,19 @@ header {
 			@extend %headings;
 			display: block;
 			font-size: 2em;
+
+			@media #{$min-width} {
+				font-size: 4.75em;
+			}
 		}
 
 		.skills {
 			font-size: 1.25em;
 			font-weight: 300;
+
+			@media #{$min-width} {
+				font-size: 1.75em;
+			}
 		}
 	}
 }
@@ -91,5 +131,4 @@ header::after {
 	position: relative;
 	z-index: 10;
 }
-
 
