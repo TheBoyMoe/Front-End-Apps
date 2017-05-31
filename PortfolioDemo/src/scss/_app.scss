@@ -1,0 +1,39 @@
+
+
+@media (min-width: 768px) {
+	header .container {
+		padding-top: 200px; }
+	header .intro-text .name {
+		font-size: 4.75em; }
+	header .intro-text .skills {
+		font-size: 1.75em; }
+	.navbar-fixed-top {
+		padding: 25px 0;
+		transition: padding .3s; }
+	.navbar-fixed-top .navbar-brand {
+		font-size: 2em;
+		transition: all .3s; }
+	.navbar-fixed-top.navbar-shrink {
+		padding: 10px 0; }
+	.navbar-fixed-top.navbar-shrink .navbar-brand {
+		font-size: 1.5em; } }
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+	section {
+		padding: 75px 0; }
+	section.first {
+		padding-top: 75px; } }
+
+
+
+@media (min-width: 767px) {
+	#portfolio .portfolio-item {
+		margin: 0 0 30px; } }
+
+

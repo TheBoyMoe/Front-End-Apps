@@ -1,0 +1,73 @@
+
+/* Navbar */
+.navbar {
+	text-transform: uppercase;
+	font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 700; }
+.navbar .navbar-nav {
+	letter-spacing: 1px; }
+.navbar .navbar-nav li a:focus {
+	outline: 0; }
+.navbar a:focus {
+	outline: 0; }
+
+.navbar-default {
+	border: 0; }
+.navbar-default .navbar-nav li.active a {
+	background-color: #18bc9c; }
+
+.navbar-inverse {
+	border: 0; }
+
+
+/* tagline & avatar */
+
+.img-headshot {
+	height: 250px;
+	position: relative;
+	z-index: 10;
+	margin-top: 40px;
+	clip-path: circle(84px at center 124px);
+	-webkit-clip-path: circle(84px at center 124px);
+	-moz-clip-path: circle(84px at center 124px); }
+
+.img-centered {
+	margin: 0 auto; }
+
+header {
+	position: relative;
+	text-align: center;
+	color: #fff;
+	background: #2F9AFF; }
+header .container {
+	padding-top: 100px; }
+header img {
+	display: block;
+	margin: 0 auto; }
+header .intro-text .name {
+	display: block;
+	text-transform: uppercase;
+	font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	font-weight: 700; }
+header .intro-text .skills {
+	font-size: 1.25em;
+	font-weight: 300; }
+
+header::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 190px;
+	position: absolute;
+	transform: skewY(-5deg);
+	background-color: #fff;
+	bottom: -100px; }
+
+#tagline {
+	padding-top: 50px;
+	position: relative;
+	z-index: 10;
+}
+
+
