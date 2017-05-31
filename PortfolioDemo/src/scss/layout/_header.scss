@@ -2,24 +2,28 @@
 /* Navbar */
 .navbar {
 	@extend %headings;
-}
-.navbar .navbar-nav {
-	letter-spacing: 1px; }
 
-.navbar .navbar-nav li a:focus {
-	@extend %remove-outline;
+	.navbar-nav {
+		letter-spacing: 1px;
+
+		li a:focus {
+			@extend %remove-outline;
+		}
+
+	}
+
+	a:focus {
+		@extend %remove-outline
+	}
 }
 
-.navbar a:focus {
-	@extend %remove-outline
-}
 
 .navbar-default {
 	@extend %remove-border;
-}
 
-.navbar-default .navbar-nav li.active a {
-	background-color: #18bc9c; }
+	.navbar-nav li.active a {
+		background-color: #18bc9c; }
+}
 
 .navbar-inverse {
 	@extend %remove-border;
@@ -45,24 +49,31 @@ header {
 	position: relative;
 	text-align: center;
 	color: #fff;
-	background: #2F9AFF; }
+	background: #2F9AFF;
 
-header .container {
-	padding-top: 100px; }
+	.container {
+		padding-top: 100px; }
 
-header img {
-	display: block;
-	margin: 0 auto; }
+	img {
+		display: block;
+		margin: 0 auto; }
 
-header .intro-text .name {
-	@extend %headings;
-	display: block;
-	font-size: 2em;
+	.intro-text {
+
+		.name {
+			@extend %headings;
+			display: block;
+			font-size: 2em;
+		}
+
+		.skills {
+			font-size: 1.25em;
+			font-weight: 300;
+		}
+	}
 }
 
-header .intro-text .skills {
-	font-size: 1.25em;
-	font-weight: 300; }
+
 
 header::after {
 	content: '';

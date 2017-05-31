@@ -1,4 +1,10 @@
 
+.btn:focus,
+.btn:active,
+.btn.active {
+	@extend %remove-outline;
+}
+
 
 .btn-outline {
 	margin-top: 15px;
@@ -7,16 +13,15 @@
 	color: #fff;
 	background: 0 0;
 	transition: all .3s ease-in-out;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		border: solid 2px #fff;
+		color: #2F9AFF;
+		background: #fff; }
 }
-
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active,
-.btn-outline.active {
-	border: solid 2px #fff;
-	color: #2F9AFF;
-	background: #fff; }
-
 
 .btn-social {
 	@extend %button;
@@ -28,11 +33,6 @@
 	line-height: 45px;
 }
 
-.btn:focus,
-.btn:active,
-.btn.active {
-	@extend %remove-outline;
-}
 
 
 /* scroll to top btn */
@@ -43,15 +43,18 @@
 	position: fixed;
 	right: 2%;
 	bottom: 2%;
+
+	.btn {
+		@extend %button;
+		border-radius: 50%;
+		font-size: 20px;
+		line-height: 24px;
+
+		&:focus {
+			@extend %remove-outline;
+		}
+	}
+
 }
 
-.scroll-top .btn {
-	@extend %button;
-	border-radius: 50%;
-	font-size: 20px;
-	line-height: 24px;
-}
 
-.scroll-top .btn:focus {
-	@extend %remove-outline;
-}
