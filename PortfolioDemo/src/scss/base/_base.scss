@@ -3,9 +3,8 @@ body {
 	overflow-x: hidden; }
 
 h1, h2, h3, h4, h5, h6 {
-	text-transform: uppercase;
-	font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
-	font-weight: 700; }
+	@extend %headings;
+}
 
 
 p {
@@ -13,21 +12,14 @@ p {
 p.small {
 	font-size: 16px; }
 
-a {
-	outline: 0;
-	color: #2F9AFF; }
-a:hover {
-	outline: 0;
-	color: #2F9AFF; }
-a:focus {
-	outline: 0;
-	color: #2F9AFF; }
-a:active {
-	outline: 0;
-	color: #2F9AFF; }
+a,
+a:hover,
+a:focus,
+a:active,
 a.active {
 	outline: 0;
-	color: #2F9AFF; }
+	color: #2F9AFF;
+}
 
 
 hr.star-light, hr.star-primary {
@@ -38,6 +30,7 @@ hr.star-light, hr.star-primary {
 	border-top: solid 5px;
 	text-align: center; }
 
+//noinspection CssNoGenericFontName
 hr.star-light:after, hr.star-primary:after {
 	content: "\f005";
 	display: inline-block;
@@ -49,13 +42,19 @@ hr.star-light:after, hr.star-primary:after {
 
 
 hr.star-light {
-	border-color: #fff; }
+	border-color: #fff;
+}
+
 hr.star-light:after {
 	color: #fff;
-	background-color: #2F9AFF; }
+	background-color: #2F9AFF;
+}
 
 hr.star-primary {
-	border-color: #2c3e50; }
+	border-color: #2c3e50;
+}
+
 hr.star-primary:after {
 	color: #2c3e50;
-	background-color: #fff; }
+	background-color: #fff;
+}
