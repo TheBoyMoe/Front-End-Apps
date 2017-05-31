@@ -19,4 +19,11 @@ $color-border:					$gallery;
 $color-border-light:			$white;
 $color-border-dark:				$bluewood;
 
+
+/* font stack */
+$stack-sans-serif:  Helvetica, Arial, sans-serif;
+$stack-montserrat:  Montserrat, $stack-sans-serif;
+
 /* dimensions */
+$br:		2px;
+$br-thin:	1px;
